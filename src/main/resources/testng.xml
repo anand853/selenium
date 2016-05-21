@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Selenium Automation Report" verbose="1">
+	<test name="Mobile Test" preserve-order="true">
+		<classes>
+			<class name="com.google.test.iRobotTests">
+				<methods>
+					<include name="installAPK" />
+					<include name="validateHomeScreen" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

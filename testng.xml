@@ -1,0 +1,43 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Selenium Automation Report" verbose="1">
+
+
+	<test name="Aspen Mobile Test" preserve-order="true">
+		<classes>
+			<class name="com.google.test.iRobotTests">
+				<methods>
+
+					<include name="installAPK" />
+					<include name="checkWelCome" />
+					<include name="setUpText" />
+					<include name="AppLangText" />
+					<include name="Automatic" />
+					<include name="stayInformed" />
+					<include name="about" />
+					<include name="aboutDesc" />
+					<include name="checkBuild" />
+					<include name="clickOnSetUpNewRoomba" />
+					<include name="verifyPageTiltle" />
+					<include name="verifyHelloTiltle" />
+					<include name="verifyHelloDesc" />
+					<include name="verifyButtonTitle" />
+					<include name="clickOnNext" />
+
+					<!-- third page -->
+					<include name="ThirdPageTitle" />
+					<include name="setUpHomeBase" />
+					<include name="setUpHomeBaseDesc" />
+					<include name="clickOnNextButton3rdPage" />
+
+
+
+
+
+
+
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
