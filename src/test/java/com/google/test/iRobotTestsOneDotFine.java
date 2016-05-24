@@ -20,7 +20,7 @@ import com.google.test.Runner;
 /**
  * Unit test for simple App.
  */
-public class iRobotTests {
+public class iRobotTestsOneDotFine {
 	String url = "http://www.irobot.com";
 	String version = "";
 	// WebDriver idriver;

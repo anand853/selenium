@@ -1,69 +1,68 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Selenium Automation Report" verbose="1">
+<suite name="Altadena Automation Report version (1.6)" verbose="1">
 
 
 	<test name="Aspen Mobile Test" preserve-order="true">
 		<classes>
-			<class name="com.google.test.iRobotTests">
+			<class name="com.google.test.Altadena">
 				<methods>
 
 					<include name="installAPK" />
-					<include name="checkWelCome" />
-					<include name="setUpText" />
+					<include name="verifyAcceptAgreementText" />
+					<include name="verifyAcceptAgreementCheckBox" />
+					<include name="verifyAcceptAgreementReview" />
+
 					<include name="AppLangText" />
 					<include name="Automatic" />
 					<include name="stayInformed" />
-					<include name="about" />
-					<include name="aboutDesc" />
-					<include name="checkBuild" />
-					<include name="clickOnSetUpNewRoomba" />
-					<include name="verifyPageTiltle" />
-					<include name="verifyHelloTiltle" />
-					<include name="verifyHelloDesc" />
-					<include name="verifyButtonTitle" />
+					<include name="aboutThisApp" />
+
+					<include name="verifyButtonNextDisabled" />
+					<include name="clickOnAggrement" />
 					<include name="clickOnNext" />
+					<!-- 2nd page -->
+					<include name="verifyPageTitle" />
+					<include name="verifyRoomba900" />
+					<include name="verifyAltadena" />
+					<include name="clickOnAlradena" />
 
-					<!-- third page -->
-					<include name="ThirdPageTitle" />
-					<include name="setUpHomeBase" />
-					<include name="setUpHomeBaseDesc" />
-					<include name="clickOnNextButton3rdPage" />
 
-					<!-- fourth page -->
-					<include name="fourthPageTitle" />
-					<include name="wakeUpRoombaText" />
-					<include name="wakeUpRoombaDesc" />
-					<include name="letsGoButton" />
+					<!-- 3rd page -->
+					<include name="verifyThirdPageTitle" />
+					<include name="verifyaddABraavaJet" />
+					<include name="verifyLearnMore" />
+					<include name="clickOnaddABraavaJet" />
 
-					<!-- fifth page -->
-					<include name="fifthPageTitle" />
-					<include name="yourMobileText" />
-					<include name="mobileNetWork" />
-					<include name="yourMobileDesc" />
-					<include name="continueButton" />
+					<!-- 4th page -->
+					<include name="verifyThirdPageTitle" />
+					<include name="verifyaddABraavaJet" />
+					<include name="verifyLearnMore" />
+					<include name="clickOnaddABraavaJet" />
 
+					<!-- 5th page -->
+					<include name="verifyfifthPageTitle" />
+					<include name="verifyChargeText" />
+					<include name="verifyChargeDesc" />
+					<include name="verifyImageButtons" />
+					<include name="verifySkipButton" />
+					<include name="clickOnSkipButton" />
 
 					<!-- 6th page -->
-					<include name="sixthPageTitle" />
-					<include name="name" />
-					<include name="netWorkName" />
-					<include name="password" />
-					<include name="passwordText" />
+					<include name="verifySixthPageTitle" />
+					<include name="verifyTurnOnTheRobot" />
+					<include name="verifyTurnOnTheRobotDesc" />
+					<include name="verifyLetsGoButton" />
+					<include name="clickOnLetsGoButton" />
 
-					<include name="showPassword" />
-					<include name="showAdvancedOptions" />
-					<include name="note" />
+					<!-- 7th page -->
+					<include name="verifySeventhPageTitle" />
+					<include name="verifyAvalableAltadena" />
+					<include name="verifyAvalableAltadenaDesc" />
+					<include name="verifyRefreshButton" />
+					<include name="clickOnAltadena" />
 
-
-
-
-
-
-
-
-
-
-
+					<!-- 8th page -->
+					<include name="altadenaHome" />
 				</methods>
 			</class>
 		</classes>
