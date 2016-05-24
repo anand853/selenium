@@ -29,6 +29,34 @@
 					<include name="setUpHomeBaseDesc" />
 					<include name="clickOnNextButton3rdPage" />
 
+					<!-- fourth page -->
+					<include name="fourthPageTitle" />
+					<include name="wakeUpRoombaText" />
+					<include name="wakeUpRoombaDesc" />
+					<include name="letsGoButton" />
+
+					<!-- fifth page -->
+					<include name="fifthPageTitle" />
+					<include name="yourMobileText" />
+					<include name="mobileNetWork" />
+					<include name="yourMobileDesc" />
+					<include name="continueButton" />
+
+
+					<!-- 6th page -->
+					<include name="sixthPageTitle" />
+					<include name="name" />
+					<include name="netWorkName" />
+					<include name="password" />
+					<include name="passwordText" />
+
+					<include name="showPassword" />
+					<include name="showAdvancedOptions" />
+					<include name="note" />
+
+
+
+
 
 
 

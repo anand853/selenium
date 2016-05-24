@@ -229,10 +229,163 @@ public class iRobotTests {
 	public void clickOnNextButton3rdPage() {
 
 		runner.implicitWait();
-		version = runner.findElement("xpath", "//android.widget.Button[@index=3]").getText();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/nextButton']").getText();
 		Assert.assertEquals("Next", version);
-		runner.findElement("xpath", "//android.widget.Button[@index=3]").click();
+		runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/nextButton']").click();
 
 	}
 
+	@Test
+	public void fourthPageTitle() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
+		Assert.assertEquals("Set Up a New Roomba", version);
+
+	}
+
+	@Test
+	public void wakeUpRoombaText() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/wifiSettingsTitleIntroSetup']")
+				.getText();
+		Assert.assertEquals("Wake Up Roomba", version);
+
+	}
+
+	@Test
+	public void wakeUpRoombaDesc() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@class='android.widget.TextView' and @index=2]").getText();
+		Assert.assertEquals(
+				"Check that the yellow bin insert has been removed and that Roomba is powered on and on the Home Base.",
+				version);
+
+	}
+
+	@Test
+	public void letsGoButton() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/goButton']").getText();
+		Assert.assertEquals("Let's Go!", version);
+		runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/goButton']").click();
+	}
+
+	@Test
+	public void fifthPageTitle() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
+		Assert.assertEquals("Step 1: Confirm Network", version);
+
+	}
+
+	@Test
+	public void yourMobileText() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/deviceConnected']").getText();
+		Assert.assertEquals("Your mobile device is connected to:", version);
+
+	}
+
+	@Test
+	public void mobileNetWork() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@class='android.widget.TextView' and @index=2]").getText();
+		Assert.assertEquals("HOME-6312-2.4", version);
+
+	}
+
+	@Test
+	public void yourMobileDesc() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@class='android.widget.TextView' and @index=3]").getText();
+		Assert.assertEquals(
+				"Your Roomba will be setup for use on this network. If you prefer a different network, go to Settings to change your device's network. You will need the password for this network.",
+				version);
+
+	}
+
+	@Test
+	public void continueButton() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/continueButton']").getText();
+		Assert.assertEquals("Continue", version);
+		runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/continueButton']").click();
+
+	}
+
+	@Test
+	public void sixthPageTitle() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
+		Assert.assertEquals("Step 2: Wi?Fi Settings", version);
+
+	}
+
+	@Test
+	public void name() {
+
+		runner.implicitWait();
+		version = runner.findElement("xpath", "*//android.widget.TextView[@index=0]").getText();
+		Assert.assertEquals("Name", version);
+
+	}
+
+	@Test
+	public void netWorkName() {
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/table_row_text']").getText();
+		Assert.assertEquals("HOME-6312-2.4", version);
+
+	}
+
+	@Test
+	public void password() {
+		runner.implicitWait();
+		version = runner.findElement("xpath", "*//android.widget.TextView[@index=2]").getText();
+		Assert.assertEquals("Password", version);
+
+	}
+
+	@Test
+	public void passwordText() {
+		runner.implicitWait();
+		version = runner.findElement("xpath", "*//android.widget.EditText[@index=3']").getText();
+		Assert.assertEquals("Enter Wi-Fi Password*", version);
+		runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/table_row_text']").sendKeys("hello123");
+
+	}
+
+	@Test
+	public void showPassword() {
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//android.widget.TextView[@index=4]").getText();
+		Assert.assertEquals("*Note: If no password is required, leave blank.", version);
+
+	}
+
+	@Test
+	public void showAdvancedOptions() {
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//android.widget.TextView[@index=6]").getText();
+		Assert.assertEquals("Show Advanced Options", version);
+
+	}
+
+	@Test
+	public void note() {
+		runner.implicitWait();
+		version = runner.findElement("xpath", "//android.widget.TextView[@index=8]").getText();
+		Assert.assertEquals("*Note: If no password is required, leave blank.", version);
+
+	}
 }
