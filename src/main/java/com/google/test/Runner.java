@@ -293,11 +293,11 @@ public class Runner {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
 		capabilities.setCapability("deviceName", "SAMSUNG-SM-G290V");
-		//capabilities.setCapability("deviceName", "Nexus 6P");
+		// capabilities.setCapability("deviceName", "Nexus 6P");
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", "com.irobot.home");
 		capabilities.setCapability("appActivity", "com.irobot.home.SplashActivity_");
-
+		capabilities.setCapability("app", "/Users/cigniti_apasunoori/Downloads/irobot-debug.apk");
 		capabilities.setCapability("autoWebview", true);
 		try {
 			androidDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
@@ -348,7 +348,7 @@ public class Runner {
 		// 'com.irobot.home:id/header_title']").getText();
 
 		element = androidDriver.findElement(By.xpath("//*[@resource-id = 'com.irobot.home:id/header_title']"));
-	//	Assert.assertEquals(element.getText(), "Welcome!");
+		// Assert.assertEquals(element.getText(), "Welcome!");
 	}
 
 	public WebElement implicitWait() {
@@ -374,21 +374,9 @@ public class Runner {
 		int scrollEnd = screenHeightEnd.intValue();
 		System.out.println("screen ends=" + scrollEnd);
 		int i;
-		// for (i = 0; i < dimensions.getHeight(); i++) {
 		androidDriver.swipe(0, scrollStart, 0, scrollEnd, 2000);
-		// }
-		// System.out.println("i value is" + i);
 
 	}
-
-	// public void takeScreenShotOnFailure(ITestResult testResult) throws
-	// IOException {
-	// if (testResult.getStatus() == ITestResult.FAILURE) {
-	// File scrFile = ((TakesScreenshot)
-	// driver).getScreenshotAs(OutputType.FILE);
-	// FileUtils.copyFile(scrFile, new File("D:\\testScreenShot.jpg"));
-	// }
-	// }
 
 	public static String returnPropertyValue() {
 		String propValue = "";

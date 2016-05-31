@@ -4,7 +4,7 @@
 
 	<test name="Aspen Mobile Test" preserve-order="true">
 		<classes>
-			<class name="com.google.test.Altadena">
+			<class name="com.google.test.Roomba900">
 				<methods>
 
 					<include name="installAPK" />
@@ -24,45 +24,22 @@
 					<include name="verifyPageTitle" />
 					<include name="verifyRoomba900" />
 					<include name="verifyAltadena" />
-					<include name="clickOnAlradena" />
+					<include name="clickOnRoomba900" />
 
 
 					<!-- 3rd page -->
 					<include name="verifyThirdPageTitle" />
-					<include name="verifyaddABraavaJet" />
+					<include name="verifyDetectedRobots" />
+					<include name="verifySetUpNewRoomba" />
 					<include name="verifyLearnMore" />
-					<include name="clickOnaddABraavaJet" />
 
 					<!-- 4th page -->
-					<include name="verifyThirdPageTitle" />
-					<include name="verifyaddABraavaJet" />
-					<include name="verifyLearnMore" />
-					<include name="clickOnaddABraavaJet" />
-
-					<!-- 5th page -->
-					<include name="verifyfifthPageTitle" />
-					<include name="verifyChargeText" />
-					<include name="verifyChargeDesc" />
-					<include name="verifyImageButtons" />
-					<include name="verifySkipButton" />
-					<include name="clickOnSkipButton" />
-
-					<!-- 6th page -->
-					<include name="verifySixthPageTitle" />
-					<include name="verifyTurnOnTheRobot" />
-					<include name="verifyTurnOnTheRobotDesc" />
-					<include name="verifyLetsGoButton" />
-					<include name="clickOnLetsGoButton" />
-
-					<!-- 7th page -->
-					<include name="verifySeventhPageTitle" />
-					<include name="verifyAvalableAltadena" />
-					<include name="verifyAvalableAltadenaDesc" />
-					<include name="verifyRefreshButton" />
-					<include name="clickOnAltadena" />
-
-					<!-- 8th page -->
-					<include name="altadenaHome" />
+					<include name="verifyFourthPageTitle" />
+					<include name="verifyHelloText" />
+					<include name="verifyHelloDesc" />
+					<include name="verifyDots" />
+					<include name="verifySkip" />
+					<include name="clickOnSkip" />
 				</methods>
 			</class>
 		</classes>

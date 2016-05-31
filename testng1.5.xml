@@ -4,6 +4,7 @@
 
 	<test name="Aspen Mobile Test" preserve-order="true">
 		<classes>
+			<class name="com.google.test.Altadena">
 				<methods>
 
 					<include name="installAPK" />
@@ -52,7 +53,6 @@
 					<include name="showPassword" />
 					<include name="showAdvancedOptions" />
 					<include name="note" />
-
 
 
 				</methods>
