@@ -223,7 +223,7 @@ public class Roomba900 {
 
 	{
 		runner.scrollToLearnMore();
-		System.out.println("----verifySetUpNewRoomba----");
+		System.out.println("----clickOnSetUpANewRoomba----");
 		runner.scrollDown();
 		runner.scrollDown();
 		runner.implicitWait();
