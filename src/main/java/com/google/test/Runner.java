@@ -292,8 +292,8 @@ public class Runner {
 	public WebDriver configureOfficeNativeAppAppium() {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
-		capabilities.setCapability("deviceName", "SAMSUNG-SM-G290V");
-		// capabilities.setCapability("deviceName", "Nexus 6P");
+		capabilities.setCapability("deviceName", "Galaxy S5");
+		// capabilities.setCapability("deviceName", "SAMSUNG-SM-G290V");
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", "com.irobot.home");
 		capabilities.setCapability("appActivity", "com.irobot.home.SplashActivity_");
@@ -356,8 +356,6 @@ public class Runner {
 		if (Runner.returnPropertyValue().equalsIgnoreCase("mobile")) {
 			driver = androidDriver;
 
-		} else {
-			driver = driver;
 		}
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		return element;
@@ -365,6 +363,7 @@ public class Runner {
 	}
 
 	public void scrollDown() {
+
 		Dimension dimensions = androidDriver.manage().window().getSize();
 		Double screenHeightStart = dimensions.getHeight() * 0.5;
 		int scrollStart = screenHeightStart.intValue();
@@ -400,6 +399,23 @@ public class Runner {
 		}
 
 		return propValue;
+
+	}
+
+	public void scrollToLearnMore() {
+		String text = "Learn more";
+		androidDriver.scrollTo(text);
+
+	}
+
+	public void scrollForText(String str) {
+		androidDriver.scrollTo(str);
+
+	}
+
+	public void waitForDetected() {
+		String text = "Detected Robots";
+		androidDriver.scrollTo(text);
 
 	}
 

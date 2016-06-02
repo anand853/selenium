@@ -32,6 +32,7 @@
 					<include name="verifyDetectedRobots" />
 					<include name="verifySetUpNewRoomba" />
 					<include name="verifyLearnMore" />
+					<include name="clickOnSetUpANewRoomba" />
 
 					<!-- 4th page -->
 					<include name="verifyFourthPageTitle" />
@@ -40,6 +41,59 @@
 					<include name="verifyDots" />
 					<include name="verifySkip" />
 					<include name="clickOnSkip" />
+
+					<!-- 5th page -->
+					<include name="verifyFifthTitle" />
+					<include name="verifyMobileDeviceText" />
+					<include name="verifyWIFI" />
+					<include name="verifyYourRoombaDesc" />
+					<include name="verifyContinue" />
+					<include name="verifyTrobleShoot" />
+					<include name="clickOnContinue" />
+
+					<!-- 6th page -->
+					<include name="verifySixthTitle" />
+					<include name="verifyNameText" />
+					<include name="verifyWIFIText" />
+					<include name="verifyPassword" />
+					<include name="verifyShowPassword" />
+					<include name="verifyShowAdvancedOptions" />
+					<include name="verifyNote" />
+					<include name="verifyContinueIn" />
+					<include name="enterPassword" />
+					<include name="clickOnContinueIn" />
+
+					<!-- 7th page -->
+					<include name="verifySevenTitle" />
+					<include name="verifyActiveDesc" />
+					<include name="verifyActiveContinue" />
+					<include name="verifyActiveTrouble" />
+					<include name="clickOnActiveContinue" />
+
+
+					<!-- 8th page -->
+					<include name="verifyeightTitle" />
+					<!-- <include name="verifyconnectPageDesc" /> -->
+					<include name="verifyeightTrouble" />
+
+					<!-- success page -->
+					<include name="verifySucsessTitle" />
+					<include name="verifySuccessDesc" />
+					<include name="verifySuccesscontinue" />
+					<include name="clickOnSuccessContinue" />
+					<!-- success page -->
+					<include name="verifyProvisionPageTitle" />
+					<include name="verifyRobotInfo" />
+					<include name="verifyRobotName" />
+					<include name="verifyLanguage" />
+					<include name="verifyBirthday" />
+					<include name="verifyOwnerInformation" />
+					<include name="verifyEmail" />
+					<include name="verifyPostalCode" />
+					<include name="verifyDone" />
+					<include name="enterRoombaName" />
+					<include name="enterEmailID" />
+					<include name="clickOnProvisionDone" />
 				</methods>
 			</class>
 		</classes>
