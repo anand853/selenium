@@ -292,7 +292,7 @@ public class Runner {
 	public WebDriver configureOfficeNativeAppAppium() {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
-		capabilities.setCapability("deviceName", "Galaxy S5");
+		capabilities.setCapability("deviceName", "Galaxy S6");
 		// capabilities.setCapability("deviceName", "SAMSUNG-SM-G290V");
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", "com.irobot.home");
@@ -367,11 +367,11 @@ public class Runner {
 		Dimension dimensions = androidDriver.manage().window().getSize();
 		Double screenHeightStart = dimensions.getHeight() * 0.5;
 		int scrollStart = screenHeightStart.intValue();
-		System.out.println("screen starts=" + scrollStart);
+		// System.out.println("screen starts=" + scrollStart);
 
 		Double screenHeightEnd = dimensions.getHeight() * 0.2;
 		int scrollEnd = screenHeightEnd.intValue();
-		System.out.println("screen ends=" + scrollEnd);
+		// System.out.println("screen ends=" + scrollEnd);
 		int i;
 		androidDriver.swipe(0, scrollStart, 0, scrollEnd, 2000);
 
@@ -416,6 +416,28 @@ public class Runner {
 	public void waitForDetected() {
 		String text = "Detected Robots";
 		androidDriver.scrollTo(text);
+
+	}
+
+	public WebDriver configureEmulator() {
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
+		capabilities.setCapability("deviceName", "Android Emulator");
+		// capabilities.setCapability("deviceName", "SAMSUNG-SM-G290V");
+		capabilities.setCapability("platformName", "Android");
+		capabilities.setCapability("appPackage", "com.irobot.home");
+		capabilities.setCapability("appActivity", "com.irobot.home.SplashActivity_");
+		capabilities.setCapability("app", "/Users/cigniti_apasunoori/Downloads/irobot-debug.apk");
+		capabilities.setCapability("autoWebview", true);
+		try {
+			androidDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
+			System.out.println("---appiums is ready to go ahead---");
+		} catch (MalformedURLException e1) {
+
+			e1.printStackTrace();
+		}
+
+		return driver;
 
 	}
 
