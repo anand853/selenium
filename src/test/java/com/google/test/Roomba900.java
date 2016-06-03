@@ -1,5 +1,10 @@
 package com.google.test;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,6 +18,8 @@ public class Roomba900 {
 	// WebDriverWait wait = new WebDriverWait(driver, 10);
 	boolean enabled = false;
 	boolean selected = false;
+
+	static Logger log = Logger.getLogger(Roomba900.class.getName());
 
 	@Test
 	public void installAPK() {
@@ -30,7 +37,7 @@ public class Roomba900 {
 				.getText();
 
 		Assert.assertEquals("Accept End User License Agreement (required)", version);
-		System.out.println("the text is =>" + version);
+		log.info("the text is =>" + version);
 
 	}
 
@@ -44,7 +51,7 @@ public class Roomba900 {
 				.isEnabled();
 
 		Assert.assertEquals(true, enabled);
-		System.out.println("the check is enabled ? => " + version);
+		log.info("the check is enabled ? => " + version);
 
 	}
 
@@ -57,7 +64,7 @@ public class Roomba900 {
 				.getText();
 
 		Assert.assertEquals("Review", version);
-		System.out.println("the text is =>" + version);
+		log.info("the text is =>" + version);
 
 	}
 	// add in testng xml
@@ -72,7 +79,7 @@ public class Roomba900 {
 				.getText();
 
 		Assert.assertEquals("App Language", version);
-		System.out.println("the text is =>" + version);
+		log.info("the text is =>" + version);
 
 	}
 
@@ -84,7 +91,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/table_row_text']").getText();
 
 		Assert.assertEquals("Automatic (set by device)", version);
-		System.out.println("the text is =>" + version);
+		log.info("the text is =>" + version);
 
 	}
 
@@ -97,7 +104,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/emailSignup']").getText();
 
 		Assert.assertEquals("Stay Informed", version);
-		System.out.println("the text is =>" + version);
+		log.info("the text is =>" + version);
 
 	}
 
@@ -108,7 +115,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//*[@text='About this App']").getText();
 
 		Assert.assertEquals("About this App", version);
-		System.out.println("the text is =>" + version);
+		log.info("the text is =>" + version);
 
 	}
 
@@ -119,12 +126,12 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/nextButton']").getText();
 
 		Assert.assertEquals("Next", version);
-		System.out.println("the text is =>" + version);
+		log.info("the text is =>" + version);
 
 		enabled = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/nextButton']").isEnabled();
 
 		Assert.assertEquals(false, enabled);
-		System.out.println("the next button is enabled ? =>" + enabled);
+		log.info("the next button is enabled ? =>" + enabled);
 
 	}
 
@@ -141,8 +148,8 @@ public class Roomba900 {
 				.getAttribute("checked");
 
 		selected = Boolean.valueOf(version);
-		System.out.println("the check box is version ? =>" + version);
-		System.out.println("the check box is selected ? =>" + selected);
+		log.info("the check box is version ? =>" + version);
+		log.info("the check box is selected ? =>" + selected);
 		// Assert.assertEquals(true, version);
 		Assert.assertEquals(true, selected);
 
@@ -162,6 +169,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Select a Robot");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -174,6 +182,7 @@ public class Roomba900 {
 
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Vacuuming Robot']").getText();
 		Assert.assertEquals(version, "Vacuuming Robot");
+		log.info("the text is =>" + version);
 	}
 
 	@Test
@@ -190,6 +199,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Roomba 900 Series");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -198,23 +208,25 @@ public class Roomba900 {
 
 		runner.implicitWait();
 		runner.waitForDetected();
-		System.out.println("----verifyDetectedRobots----");
+		log.info("----verifyDetectedRobots----");
 		runner.scrollDown();
 
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/detectedRobotText']").getText();
 		Assert.assertEquals(version, "Detected Robots");
+		log.info("the text is =>" + version);
 
 	}
 
 	@Test
 	public void verifySetUpNewRoomba() {
 		runner.scrollToLearnMore();
-		System.out.println("----verifySetUpNewRoomba----");
+		log.info("----verifySetUpNewRoomba----");
 		runner.scrollDown();
 		runner.scrollDown();
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/setUpNewRoomba']").getText();
 		Assert.assertEquals(version, "Set Up a New Roomba");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -223,7 +235,7 @@ public class Roomba900 {
 
 	{
 		runner.scrollToLearnMore();
-		System.out.println("----clickOnSetUpANewRoomba----");
+		log.info("----clickOnSetUpANewRoomba----");
 		runner.scrollDown();
 		runner.scrollDown();
 		runner.implicitWait();
@@ -237,9 +249,9 @@ public class Roomba900 {
 		runner.scrollToLearnMore();
 		runner.implicitWait();
 
-		System.out.println("----verifyLearnMore----");
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/learnMore']").getText();
 		Assert.assertEquals(version, "Learn more");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -256,6 +268,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Set Up a New Roomba");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -266,6 +279,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/wifiSettingsTitleIntroSetup']")
 				.getText();
 		Assert.assertEquals(version, "Hello!");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -291,7 +305,8 @@ public class Roomba900 {
 		version = runner
 				.findElement("xpath", "//*[@index=1 or @package='com.irobot.home' or @class='android.widget.TextView']")
 				.getText();
-		Assert.assertEquals(version, "Before we begin, let's make sure you have everything ready to go.");
+		// Assert.assertEquals(version, "Before we begin, let's make sure you
+		// have everything ready to go.");
 
 	}
 
@@ -301,6 +316,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/nextButton']").getText();
 		Assert.assertEquals(version, "Skip");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -318,6 +334,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Step 1: Confirm Network");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -327,6 +344,8 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/deviceConnected']").getText();
 		Assert.assertEquals(version, "Your mobile device is connected to:");
+		log.info("the text is =>" + version);
+		log.info("the text is =>" + version);
 
 	}
 
@@ -336,6 +355,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/networkName']").getText();
 		Assert.assertEquals(version, "Warrior-Test");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -346,7 +366,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//android.widget.TextView[@index=3]").getText();
 		Assert.assertEquals(version,
 				"Your Roomba will be setup for use on this network. If you prefer a different network, go to Settings to change your device's network. You will need the password for this network.");
-
+		log.info("the text is =>" + version);
 	}
 
 	@Test
@@ -355,6 +375,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/continueButton']").getText();
 		Assert.assertEquals(version, "Continue");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -364,6 +385,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/footerText']").getText();
 		Assert.assertEquals(version, "Troubleshooting");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -381,6 +403,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Step 2: Wi‑Fi Settings");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -391,6 +414,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/table_row_label' and @index=0]")
 				.getText();
 		Assert.assertEquals(version, "Name");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -400,6 +424,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/table_row_text']").getText();
 		Assert.assertEquals(version, "Warrior-Test");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -409,6 +434,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Password']").getText();
 		Assert.assertEquals(version, "Password");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -418,6 +444,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Show Password']").getText();
 		Assert.assertEquals(version, "Show Password");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -427,6 +454,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Show Advanced Options']").getText();
 		Assert.assertEquals(version, "Show Advanced Options");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -436,6 +464,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/noPasswordRequired']").getText();
 		Assert.assertEquals(version, "*Note: If no password is required, leave blank.");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -445,6 +474,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/continueButton']").getText();
 		Assert.assertEquals(version, "Continue");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -470,6 +500,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Step 3: Activate Roomba");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -480,7 +511,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/progress_status']").getText();
 		Assert.assertEquals(version,
 				"Activate Roomba by pressing and holding the u and t buttons until Roomba generates a tone (about two seconds). Release the buttons and Roomba will flash this light");
-
+		log.info("the text is =>" + version);
 	}
 
 	@Test
@@ -489,6 +520,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/continueButton']").getText();
 		Assert.assertEquals(version, "Continue");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -498,6 +530,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/footerText']").getText();
 		Assert.assertEquals(version, "Troubleshooting");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -515,7 +548,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Step 4: Connecting to Roomba");
-
+		log.info("the text is =>" + version);
 	}
 
 	@Test
@@ -525,7 +558,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/openWifiSettings']").getText();
 		Assert.assertEquals(version,
 				"If the app does not automatically connect to Roomba, go to Wi‑Fi Settings, connect to Roomba_###, and return to this app.");
-
+		log.info("the text is =>" + version);
 	}
 
 	@Test
@@ -534,6 +567,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Troubleshooting']").getText();
 		Assert.assertEquals(version, "Troubleshooting");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -543,6 +577,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Success!");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -552,6 +587,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/successText']").getText();
 		Assert.assertTrue(version.contains("Roomba is now set up and ready for use."));
+		log.info("the text is =>" + version);
 
 	}
 
@@ -561,6 +597,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/continueButton']").getText();
 		Assert.assertEquals(version, "Continue");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -569,6 +606,7 @@ public class Roomba900 {
 
 		runner.implicitWait();
 		runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/continueButton']").click();
+		log.info("the text is =>" + version);
 
 	}
 
@@ -579,6 +617,7 @@ public class Roomba900 {
 
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/header_title']").getText();
 		Assert.assertEquals(version, "Personalize Roomba");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -588,6 +627,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Robot Information']").getText();
 		Assert.assertEquals(version, "Robot Information");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -597,6 +637,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/robotnameLabel']").getText();
 		Assert.assertEquals(version, "Name");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -606,6 +647,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/table_row_label']").getText();
 		Assert.assertEquals(version, "Language");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -615,6 +657,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Birthday']").getText();
 		Assert.assertEquals(version, "Birthday");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -624,6 +667,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Owner Information']").getText();
 		Assert.assertEquals(version, "Owner Information");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -633,6 +677,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Email']").getText();
 		Assert.assertEquals(version, "Email");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -642,6 +687,7 @@ public class Roomba900 {
 		runner.implicitWait();
 		version = runner.findElement("xpath", "//android.widget.TextView[@text='Postal Code' or @index=9]").getText();
 		Assert.assertEquals(version, "Postal Code");
+		log.info("the text is =>" + version);
 
 	}
 
@@ -652,6 +698,7 @@ public class Roomba900 {
 		version = runner.findElement("xpath", "//android.widget.Button[@resource-id='com.irobot.home:id/btnDone']")
 				.getText();
 		Assert.assertEquals(version, "Done");
+		log.info("the text is =>" + version);
 
 	}
 

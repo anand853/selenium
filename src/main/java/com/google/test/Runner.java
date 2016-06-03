@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -45,6 +46,11 @@ public class Runner {
 	static OutputStream output = null;
 	WebDriverWait wait;
 
+	String home = System.getProperty("user.home");
+	String download = "/Downloads/";
+
+	static Logger log = Logger.getLogger(Runner.class.getName());
+
 	public String getOSVersion() {
 		return System.getProperty("os.name");
 
@@ -59,22 +65,22 @@ public class Runner {
 			e.printStackTrace();
 		}
 
-		System.out.println(System.getProperty("os.name"));
-		System.out.println(System.getProperty("os.version"));
-		System.out.println(System.getProperty("path.separator"));
-		System.out.println(System.getProperty("user.dir"));
-		System.out.println(System.getProperty("user.home"));
-		System.out.println(System.getProperty("user.name"));
-		System.out.println(System.getProperty("os.arch"));
-		System.out.println(System.getProperty("line.separator"));
-		System.out.println(System.getProperty("java.version"));
-		System.out.println(System.getProperty("java.vendor.url"));
-		System.out.println(System.getProperty("java.vendor"));
-		System.out.println(System.getProperty("java.home"));
-		System.out.println(System.getProperty("java.class.path"));
-		System.out.println(System.getProperty("file.separator"));
+		log.info(System.getProperty("os.name"));
+		log.info(System.getProperty("os.version"));
+		log.info(System.getProperty("path.separator"));
+		log.info(System.getProperty("user.dir"));
+		log.info(System.getProperty("user.home"));
+		log.info(System.getProperty("user.name"));
+		log.info(System.getProperty("os.arch"));
+		log.info(System.getProperty("line.separator"));
+		log.info(System.getProperty("java.version"));
+		log.info(System.getProperty("java.vendor.url"));
+		log.info(System.getProperty("java.vendor"));
+		log.info(System.getProperty("java.home"));
+		log.info(System.getProperty("java.class.path"));
+		log.info(System.getProperty("file.separator"));
 
-		System.out.println(r.getOSVersion());
+		log.info(r.getOSVersion());
 	}
 
 	public WebDriver lauchDriver(String browser) {
@@ -290,6 +296,7 @@ public class Runner {
 	}
 
 	public WebDriver configureOfficeNativeAppAppium() {
+		String appLocation = home + download;
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
 		capabilities.setCapability("deviceName", "Galaxy S6");
@@ -297,11 +304,13 @@ public class Runner {
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", "com.irobot.home");
 		capabilities.setCapability("appActivity", "com.irobot.home.SplashActivity_");
-		capabilities.setCapability("app", "/Users/cigniti_apasunoori/Downloads/irobot-debug.apk");
+		capabilities.setCapability("app", appLocation + "/irobot-debug.apk");
 		capabilities.setCapability("autoWebview", true);
 		try {
 			androidDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
-			System.out.println("---appiums is ready to go ahead---");
+			log.info("---appiums is ready to go ahead---");
+			log.info("the appLocation is =>" + appLocation);
+
 		} catch (MalformedURLException e1) {
 
 			e1.printStackTrace();
@@ -333,9 +342,9 @@ public class Runner {
 			String company3 = prop.getProperty("appActivity");
 
 			result = "Company List = " + company1 + ", " + company2 + ", " + company3;
-			System.out.println(result + "\nProgram Ran on " + time + " by user=" + user);
+			log.info(result + "\nProgram Ran on " + time + " by user=" + user);
 		} catch (Exception e) {
-			System.out.println("Exception: " + e);
+			log.info("Exception: " + e);
 		} finally {
 			inputStream.close();
 		}
@@ -367,11 +376,11 @@ public class Runner {
 		Dimension dimensions = androidDriver.manage().window().getSize();
 		Double screenHeightStart = dimensions.getHeight() * 0.5;
 		int scrollStart = screenHeightStart.intValue();
-		// System.out.println("screen starts=" + scrollStart);
+		// log.info("screen starts=" + scrollStart);
 
 		Double screenHeightEnd = dimensions.getHeight() * 0.2;
 		int scrollEnd = screenHeightEnd.intValue();
-		// System.out.println("screen ends=" + scrollEnd);
+		// log.info("screen ends=" + scrollEnd);
 		int i;
 		androidDriver.swipe(0, scrollStart, 0, scrollEnd, 2000);
 
@@ -431,7 +440,7 @@ public class Runner {
 		capabilities.setCapability("autoWebview", true);
 		try {
 			androidDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
-			System.out.println("---appiums is ready to go ahead---");
+			log.info("---appiums is ready to go ahead---");
 		} catch (MalformedURLException e1) {
 
 			e1.printStackTrace();
