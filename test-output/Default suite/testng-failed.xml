@@ -3,7 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="com.google.test.google.iRobotTests"/>
+      <class name="com.google.test.AppiumTest"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.google.test.AppiumTest">
+        <methods>
+          <include name="runTest"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.google.test.AppiumTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

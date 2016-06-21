@@ -565,7 +565,7 @@ public class Roomba900 {
 	public void verifyeightTrouble() {
 		runner.scrollForText("Troubleshooting");
 		runner.implicitWait();
-		version = runner.findElement("xpath", "//android.widget.TextView[@text='Troubleshooting']").getText();
+		version = runner.findElement("xpath", "//*[@text='Troubleshooting']").getText();
 		Assert.assertEquals(version, "Troubleshooting");
 		log.info("the text is =>" + version);
 
@@ -629,6 +629,12 @@ public class Roomba900 {
 		Assert.assertEquals(version, "Robot Information");
 		log.info("the text is =>" + version);
 
+	}
+
+	@Test
+	public void quitDriver() {
+		runner.quitDriver();
+		log.info("the driver shutting down");
 	}
 
 	@Test
@@ -726,6 +732,7 @@ public class Roomba900 {
 
 		runner.implicitWait();
 		runner.findElement("xpath", "//*[@resource-id='com.irobot.home:id/btnDone']").click();
+		runner.implicitWait();
 
 	}
 

@@ -1,101 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Altadena Automation Report version (1.6)" verbose="1">
+<suite name="Aspen Automation Report version (1.6)" verbose="1"
+	preserve-order="true">
 
-
-	<test name="Aspen Mobile Test" preserve-order="true">
-		<classes>
-			<class name="com.google.test.Roomba900">
-				<methods>
-
-					<include name="installAPK" />
-					<include name="verifyAcceptAgreementText" />
-					<include name="verifyAcceptAgreementCheckBox" />
-					<include name="verifyAcceptAgreementReview" />
-
-					<include name="AppLangText" />
-					<include name="Automatic" />
-					<include name="stayInformed" />
-					<include name="aboutThisApp" />
-
-					<include name="verifyButtonNextDisabled" />
-					<include name="clickOnAggrement" />
-					<include name="clickOnNext" />
-					<!-- 2nd page -->
-					<include name="verifyPageTitle" />
-					<include name="verifyRoomba900" />
-					<include name="verifyAltadena" />
-					<include name="clickOnRoomba900" />
-
-
-					<!-- 3rd page -->
-					<include name="verifyThirdPageTitle" />
-					<include name="verifyDetectedRobots" />
-					<include name="verifySetUpNewRoomba" />
-					<include name="verifyLearnMore" />
-					<include name="clickOnSetUpANewRoomba" />
-
-					<!-- 4th page -->
-					<include name="verifyFourthPageTitle" />
-					<include name="verifyHelloText" />
-					<include name="verifyHelloDesc" />
-					<include name="verifyDots" />
-					<include name="verifySkip" />
-					<include name="clickOnSkip" />
-
-					<!-- 5th page -->
-					<include name="verifyFifthTitle" />
-					<include name="verifyMobileDeviceText" />
-					<include name="verifyWIFI" />
-					<include name="verifyYourRoombaDesc" />
-					<include name="verifyContinue" />
-					<include name="verifyTrobleShoot" />
-					<include name="clickOnContinue" />
-
-					<!-- 6th page -->
-					<include name="verifySixthTitle" />
-					<include name="verifyNameText" />
-					<include name="verifyWIFIText" />
-					<include name="verifyPassword" />
-					<include name="verifyShowPassword" />
-					<include name="verifyShowAdvancedOptions" />
-					<include name="verifyNote" />
-					<include name="verifyContinueIn" />
-					<include name="enterPassword" />
-					<include name="clickOnContinueIn" />
-
-					<!-- 7th page -->
-					<include name="verifySevenTitle" />
-					<include name="verifyActiveDesc" />
-					<include name="verifyActiveContinue" />
-					<include name="verifyActiveTrouble" />
-					<include name="clickOnActiveContinue" />
-
-
-					<!-- 8th page -->
-					<include name="verifyeightTitle" />
-					<!-- <include name="verifyconnectPageDesc" /> -->
-					<include name="verifyeightTrouble" />
-
-					<!-- success page -->
-					<include name="verifySucsessTitle" />
-					<include name="verifySuccessDesc" />
-					<include name="verifySuccesscontinue" />
-					<include name="clickOnSuccessContinue" />
-					<!-- success page -->
-					<include name="verifyProvisionPageTitle" />
-					<include name="verifyRobotInfo" />
-					<include name="verifyRobotName" />
-					<include name="verifyLanguage" />
-					<include name="verifyBirthday" />
-					<include name="verifyOwnerInformation" />
-					<include name="verifyEmail" />
-					<include name="verifyPostalCode" />
-					<include name="verifyDone" />
-					<include name="enterRoombaName" />
-					<include name="enterEmailID" />
-					<include name="clickOnProvisionDone" />
-				</methods>
-			</class>
-		</classes>
-	</test>
+	<suite-files>
+		<suite-file path="testng1.6Altadena.xml"></suite-file>
+		<suite-file path="testng1.6Roomba900.xml"></suite-file>
+	</suite-files>
 </suite>
+
+

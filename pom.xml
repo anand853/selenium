@@ -113,10 +113,14 @@
 					</properties>
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
+						-->
+
+
+
 					</suiteXmlFiles>
-					<!-- <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile> -->
-					<!-- <suiteXmlFiles> <suiteXmlFile>src/test/resources/TestNG.xml</suiteXmlFile> 
-						<suiteXmlFile>${tests}</suiteXmlFile> </suiteXmlFiles> -->
+					<!-- <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile> <suiteXmlFiles> 
+						<suiteXmlFile>src/test/resources/TestNG.xml</suiteXmlFile> <suiteXmlFile>${tests}</suiteXmlFile> 
+						</suiteXmlFiles> -->
 				</configuration>
 			</plugin>
 			<plugin>

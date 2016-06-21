@@ -316,7 +316,7 @@ public class Runner {
 			e1.printStackTrace();
 		}
 
-		return driver;
+		return androidDriver;
 
 	}
 
@@ -425,6 +425,14 @@ public class Runner {
 	public void waitForDetected() {
 		String text = "Detected Robots";
 		androidDriver.scrollTo(text);
+
+	}
+
+	public void quitDriver() {
+		log.info("started==>");
+		log.info("started=187=>");
+		// androidDriver = null;
+		log.info("quit end==>");
 
 	}
 
