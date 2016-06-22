@@ -285,15 +285,7 @@ public class Altadena {
 		selected = runner.findElement("xpath", "//android.widget.ImageButton[@index=3]").isDisplayed();
 		Assert.assertEquals(selected, true, "for 2nd button");
 
-		// selected = runner.findElement("xpath",
-		// "//android.widget.ImageButton[@index=4]").isDisplayed();
-		// Assert.assertEquals(selected, true, "for 3rd button");
-
-		// selected = runner.findElement("xpath",
-		// "//android.widget.ImageButton[@index=5]").isDisplayed();
-		// Assert.assertEquals(selected, true, "for 4th button");
-
-	}
+			}
 
 	@Test
 	public void verifySkipButton() {

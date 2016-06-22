@@ -3,7 +3,7 @@
 	preserve-order="true">
 
 	<suite-files>
-		<suite-file path="testng1.6Altadena.xml"></suite-file>
+		<!--<suite-file path="testng1.6Altadena.xml"></suite-file> -->
 		<suite-file path="testng1.6Roomba900.xml"></suite-file>
 	</suite-files>
 </suite>
