@@ -1,6 +1,17 @@
 package com.google.test;
 
-import java.io.File;
+import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,48 +24,23 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import io.appium.java_client.android.AndroidDriver;
-
 public class Runner {
 
-	Runner runner;
-	static WebDriver driver;
-	WebElement element;
+    public static AndroidDriver androidDriver = null;
+    static WebDriver driver;
+    static Properties prop = new Properties();
+    static OutputStream output = null;
+    static Logger log = Logger.getLogger(Runner.class.getName());
+    Runner runner;
+    WebElement element;
 	String osName;
 	String driverPath;
 	List<WebElement> elementList;
 	String result = "";
 	InputStream inputStream;
-	public static AndroidDriver androidDriver = null;
-	static Properties prop = new Properties();
-	static OutputStream output = null;
 	WebDriverWait wait;
-
 	String home = System.getProperty("user.home");
 	String download = "/Downloads/";
-
-	static Logger log = Logger.getLogger(Runner.class.getName());
-
-	public String getOSVersion() {
-		return System.getProperty("os.name");
-
-	}
 
 	public static void main(String[] args) {
 		Runner r = new Runner();
@@ -82,6 +68,36 @@ public class Runner {
 
 		log.info(r.getOSVersion());
 	}
+
+    public static String returnPropertyValue() {
+        String propValue = "";
+        try {
+            prop.load(App.class.getClassLoader().getResourceAsStream("config.properties"));
+
+            // get the property value and print it out
+            propValue = prop.getProperty("driverChannel");
+
+        } catch (IOException io) {
+            io.printStackTrace();
+        } finally {
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+        return propValue;
+
+    }
+
+    public String getOSVersion() {
+        return System.getProperty("os.name");
+
+    }
 
 	public WebDriver lauchDriver(String browser) {
 
@@ -272,7 +288,8 @@ public class Runner {
 
 	}
 
-	public WebDriver configureNativeAppAppium() {
+    //working
+    public WebDriver configureNativeAppAppium() {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
 		capabilities.setCapability("deviceName", "XT1053");
@@ -382,31 +399,6 @@ public class Runner {
 		// log.info("screen ends=" + scrollEnd);
 		int i;
 		androidDriver.swipe(0, scrollStart, 0, scrollEnd, 2000);
-
-	}
-
-	public static String returnPropertyValue() {
-		String propValue = "";
-		try {
-			prop.load(App.class.getClassLoader().getResourceAsStream("config.properties"));
-
-			// get the property value and print it out
-			propValue = prop.getProperty("driverChannel");
-
-		} catch (IOException io) {
-			io.printStackTrace();
-		} finally {
-			if (output != null) {
-				try {
-					output.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
-
-		return propValue;
 
 	}
 
