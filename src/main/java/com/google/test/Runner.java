@@ -299,15 +299,15 @@ public class Runner {
 		String appLocation = home + download;
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.PLATFORM, "Android");
-		capabilities.setCapability("deviceName", "Galaxy S6");
-		// capabilities.setCapability("deviceName", "SAMSUNG-SM-G290V");
+	//	capabilities.setCapability("deviceName", "Galaxy S6");
+		 capabilities.setCapability("deviceName", "SAMSUNG-SM-G290V");
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", "com.irobot.home");
 		capabilities.setCapability("appActivity", "com.irobot.home.SplashActivity_");
 		capabilities.setCapability("app", appLocation + "/irobot-debug.apk");
 		capabilities.setCapability("autoWebview", true);
 		try {
-			androidDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
+			androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4725/wd/hub"), capabilities);
 			log.info("---appiums is ready to go ahead---");
 			log.info("the appLocation is =>" + appLocation);
 

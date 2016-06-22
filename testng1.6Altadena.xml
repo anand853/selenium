@@ -6,7 +6,7 @@
 		<classes>
 			<class name="com.google.test.Altadena">
 				<methods>
-					<include name="quitDriver" />
+					<!-- <include name="quitDriver" />  -->
 					<include name="installAPK" />
 					<include name="verifyAcceptAgreementText" />
 					<include name="verifyAcceptAgreementCheckBox" />
